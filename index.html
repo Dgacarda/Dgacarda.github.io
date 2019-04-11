@@ -1,112 +1,183 @@
 <!DOCTYPE html>
-<html style="position: relative; height: auto; background-color: #F5F5F5">
-<head>
-  <link rel="stylesheet" href="src/css/all.min.css" rel="stylesheet">
-  <link href="vuetify.css" rel="stylesheet">
-  <link href="../../../frontend/MaterialDesign-Webfont-master/css/materialdesignicons.min.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="src/css/style.css"> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-</head>
- 
-<body>
-  <div id="app">
-    <v-app id="inspire">
-      <div id="e3" style="max-width: 400px; margin: auto;" class="grey lighten-3">
-        <v-toolbar
-          color="pink"
-          dark
-        >
-     
-          <v-toolbar-title>Station of Dinamo<br>Самые свежие новости</v-toolbar-title>
-          <v-spacer></v-spacer>
-        </v-toolbar>
-    
-        <v-card>
-          <v-container
-            fluid
-            grid-list-lg
-          >
-            <v-layout row wrap>
-              <v-flex xs12>
-                <v-card color="blue-grey darken-2" class="white--text">
-                  <v-card-title primary-title>
-                    <div>
-                      <div class="headline">Ничего нового!</div>
-                      <span>Всем привет, дорогие друзья. Сегодня, как и обычно, Анна не ответила положительно
-                        на приглашения Александра пойти в кино. Мы ничему не удивлены и будем держать вас
-                        в курсе дальнейших событий
-                      </span>
-                    </div>
-                  </v-card-title>
-                </v-card>
-              </v-flex>
-    
-              <v-flex xs12>
-                <v-card color="cyan darken-2" class="white--text">
-                  <v-layout>
-                    <v-flex xs5>
-                      <v-img
-                        src="1.jpg"
-                        height="125px"
-                        contain
-                      ></v-img>
-                    </v-flex>
-                    <v-flex xs7>
-                      <v-card-title primary-title>
-                        <div>
-                          <div class="headline">Неужели опять?</div>
-                          <div>Анна снова за своё!</div>
-                          <div>
-                            Ох, правда, опять отказ? Удивительно, однако..
-                          </div>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                  </v-layout>
-                  <v-divider light></v-divider>
-                  <v-card-actions class="pa-3">
-                    Букмекеры прогнозируют 4,54 % на согласие от Анны в 2019 году!
-                  </v-card-actions>
-                </v-card>
-              </v-flex>
-    
-              <v-flex xs12>
-                <v-card color="purple" class="white--text">
-                  <v-layout row>
-                    <v-flex xs7>
-                      <v-card-title primary-title>
-                        <div>
-                          <div class="headline">Ну.. ты пытался...</div>
-                          <div>Анна негодует</div>
-                          <div>Да-да, очередной отказ</div>
-                        </div>
-                      </v-card-title>
-                    </v-flex>
-                    <v-flex xs5>
-                      <v-img
-                        src="2.jpg"
-                        height="125px"
-                        contain
-                      ></v-img>
-                    </v-flex>
-                  </v-layout>
-                </v-card>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-card>
-      </div>
-    </v-app>
-  </div>
+<html lang="en">
 
- <script src="vue.js"></script>
-  <script src="vuetify.js"></script>
-  <!-- <script src="src/google.js"></script> -->
-  <script>
-  new Vue({
-  el: '#app',
-  
-})
-  </script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="introduction">
+            <p>
+                <a href="" data-toggle="modal" data-target="#exampleModal" class="appointment">Записаться онлайн</a>
+                <br>
+            </p>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Выбор подразделения</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <select name="" id="options" class="form-control">
+                        <option value="">Выберите автомойку</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <!-- <button type="button" id="sendSelection" class="btn btn-primary">Выбрать</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalAccordeon" tabindex="-1" role="dialog" aria-labelledby="modalAccordeonLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Форма записи</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordions">
+                        <h3> Выберите желаемое время</h3>
+
+                        <div class="accordion">
+                            <div class="panel-body" data-role="schedule-record-widget-schedule-table-container">
+                                <div class="d-flex flex-row">
+                                    <button id="prev-btn" type="button" class="btn btn-info flex-grow-1 disabled mr-3">Назад</button>
+                                    <button id="next-btn" type="button" class="btn btn-info flex-grow-1">Вперед</button>
+                                </div>
+
+                                <div class="schedule-days-table">
+                                    <div class="days-header"></div>
+                                    <div class="days-schedule"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 id="information">Дополнительная информация</h3>
+
+                        <div class="accordion ">
+                            <form id="main">
+                                <div class="form-group">
+                                    <label for="name">Ваше имя</label>
+                                    <input type="text" name="FullName" class="form-control" id="name" placeholder="Ваше имя" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tel">Ваш телефон</label>
+                                    <input type="tel" name="phone" class="form-control" id="tel" placeholder="Ваше телефон" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="type">Марка</label>
+                                    <!-- <input type="text" name="type" class="form-control" id="type" placeholder="Тип услуги" required> -->
+                                    <select name="CodeTypeOfEmployment" id="type" class="form-control">
+                                        <option value="">Выберите тип</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment">Комментарий</label>
+                                    
+                                    <textarea placeholder="Укажите дополнительные услуги или пожелания" name="Comment" class="form-control" id="" cols="30" rows="2"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Записаться</button>
+                            </form>
+                            <form id="minor" class="mt-2">
+                                <div class="form-group">
+                                    <label for="confirm">Введите код подтверждения</label>
+                                    <input type="text" class="form-control" id="confirm" 
+                                    placeholder="введите код подтверждения" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Подтвердить код</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer"> -->
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button> -->
+                    <!-- <button type="button" class="btn btn-primary">Выбрать</button> -->
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="modal fade" id="success-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Вы успешно записались!</h5>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="fail-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Записаться не удалось</h5>
+              <div> Свяжитесь с владельцами ресурса </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="fail-sms-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              <h5 class="modal-title">СМС можно отправлять не чаще раза в минуту</h5>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/vendors/jquery-3.3.1.min.js"></script>
+    <script src="js/vendors/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/vendors/jquery.inputmask.js"></script>
 </body>
+
 </html>

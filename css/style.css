@@ -116,3 +116,9 @@
         width: 89px;
     }
 }
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        min-width: 600px;
+    }
+}

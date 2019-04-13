@@ -1,6 +1,12 @@
 jQuery(function ($) {
     "use strict";
 
+
+
+    // $("#hui").on('click', function() {
+    //     alert('Ты долбоеб ебаный сасеш')
+    // })
+
     let apiBase = 'http://91.201.55.168/api/odata/standard.odata/';
     let last_sended_code;
     let last_send_sms = 0;
@@ -20,7 +26,18 @@ jQuery(function ($) {
         tel = $('#tel'),
         type = $('#type'),
         confirm = $('#confirm'),
-        choosenData = false;
+        choosenData = false,
+        mouseDown = false,
+        coordinats = 0,
+        mobile = false,
+        showedDays = 0,
+        countToDate = 1,
+        records = [];
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        // $("#buttonsToSwipe").addClass("hideIt")
+        // mobile = true
+    }
 
     $.ajaxSetup({ dataType: 'json' });
 
@@ -31,9 +48,49 @@ jQuery(function ($) {
     $("#modalAccordeon").swipe( {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-          $(this).text("You swiped " + direction );  
-        }
-    });
+            // if (direction > 5) {
+
+                if (direction === "right") {
+                    bodyContainer.empty()
+                    headerContainer.empty()
+                    drawTime(3, 2, 4)
+                } else if (direction === "left") {
+                    bodyContainer.empty()
+                    headerContainer.empty()
+                    drawTime(3, 0, 2)
+                }
+            // }
+            // alert(direction + " дистанция : " + distance)
+        //   $(this).text("You swiped " + direction );  
+        },
+        //Default is 75px, set to 0 for demo so any distance triggers swipe
+         threshold: 75
+      });
+    
+    // $("#modalAccordeon").on('mousedown', function (e) {
+    //     mouseDown = true
+    //     coordinats = e.clientX
+    // })
+    // $("#modalAccordeon").on('mouseup', function () {
+    //     mouseDown = false
+    // })
+    // $("#modalAccordeon").on('mousemove', function (e) {
+    //     if (mouseDown) {
+    //         if (e.clientX + 150 < coordinats) {
+    //             console.log("свайп направо")
+    //         } else if (e.clientX + 150 > coordinats) {
+    //             console.log("свайп налево")
+    //         }
+    //         // console.log(e.clientY)
+    //     }
+    // })
+
+    // $("#modalAccordeon").swipe( {
+    //     //Generic swipe handler for all directions
+    //     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+    //       $(this).text("You swiped " + direction );  
+    //     }
+    // });
 
     $('#main').on('submit', function (e) {
         e.preventDefault();
@@ -134,10 +191,13 @@ jQuery(function ($) {
     });
 
     $("#options").on("change", function() {
-        $("#exampleModal").modal("hide");
+        $("#exampleModal").modal("hide")
+
         selected = select.val();
-        let d2 = new Date(Number(startDate) + 4 * 24 * 60 * 60 * 1000);
-        d2 = new Date(d2.setHours(23, 59, 59));
+        select.val('')
+        
+        let d2 = new Date(Number(startDate) + 4 * 24 * 60 * 60 * 1000)
+        d2 = new Date(d2.setHours(23, 59, 59))
 
         if (!selected) return;
 
@@ -148,8 +208,10 @@ jQuery(function ($) {
             url: apiBase + `Catalog_Посты?$format=json&$filter=DeletionMark eq false and Объект/Code eq '${selected}'&$select=Code`,
             success: (data, status, xhr) => {
                 let posts_count = data.value.length;
+
                 let dateTimes = [];
 
+                
                 let strd1 = startDate.toISOString();
                 strd1 = strd1.slice(0, strd1.indexOf('.'));
                 let strd2 = d2.toISOString();
@@ -158,7 +220,7 @@ jQuery(function ($) {
                 let url = `InformationRegister_ОнлайнЗаписьЗаявка_RecordType?$format=json&$filter=Пост/Объект/Code eq '${selected}' and Дата gt datetime'${strd1}' and Дата lt datetime'${strd2}'&$expand=Пост&$select=Пост/Code,Время,Дата`;
 
                 jQuery.getJSON(apiBase + url, (data) => {
-                    let records = [];
+                    records = [];
 
                     for (let record of data.value) {
                         let rd = new Date(Date.parse(record.Дата));
@@ -170,40 +232,45 @@ jQuery(function ($) {
                         records.push(obj);
                     }
 
-                    for (let i = 0; i < 5; i++) {
-                        let d = new Date(Number(startDate) + i * 24 * 60 * 60 * 1000);
-                        let dn = d.toLocaleDateString('ru', {weekday: 'long'});
-                        let dd = `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth()+1).padStart(2, '0')}.${d.getFullYear()}`;
+                    
 
-                        let el = `<div class="day-block day-header">${dd}<br><span class="day-name">${dn}</span></div>`;
-                        headerContainer.append(el);
+                    drawTime(3, 0, 2)
 
-                        let item = '<div class="day-block day-header">';
-                        let strd = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-
-                        for (let hour = 8; hour < 20; hour ++) {
-                            for (let minutes = 0; minutes < 60; minutes += 15) {
-                                let time = String(hour).padStart(2, '0') + ':' + String(minutes).padStart(2, '0');
-                                let rcount = records.filter(el => el.date - d == 0 && el.time == time).length;
-
-                                if (rcount == posts_count) {
-                                    item += '<p class="blocked" disabled>' + time + '</p>';
-                                } else {
-                                    item += '<p class="link" data-role="period" data-date="' + strd + '">' + time + '</p>';
-                                }
-                            }
-                        }
-
-                        item += '</div>';
-                        bodyContainer.append(item);
-                    }
-
-                    $('#exampleModal').modal({ show: false });
                     $('#modalAccordeon').modal({ show: true });
                 });
             }
         });
     });
+
+    function drawTime(posts_count, i, count) {
+        for (i; i < count; i++) {
+            let d = new Date(Number(startDate) + i * 24 * 60 * 60 * 1000);
+            let dn = d.toLocaleDateString('ru', {weekday: 'long'});
+            let dd = `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth()+1).padStart(2, '0')}.${d.getFullYear()}`;
+
+            let el = `<div class="day-block day-header">${dd}<br><span class="day-name">${dn}</span></div>`;
+            headerContainer.append(el);
+
+            let item = '<div class="day-block day-header">';
+            let strd = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+
+            for (let hour = 8; hour < 20; hour ++) {
+                for (let minutes = 0; minutes < 60; minutes += 15) {
+                    let time = String(hour).padStart(2, '0') + ':' + String(minutes).padStart(2, '0');
+                    let rcount = records.filter(el => el.date - d == 0 && el.time == time).length;
+
+                    if (rcount == posts_count) {
+                        item += '<p class="blocked" disabled>' + time + '</p>';
+                    } else {
+                        item += '<p class="link" data-role="period" data-date="' + strd + '">' + time + '</p>';
+                    }
+                }
+            }
+
+            item += '</div>';
+            bodyContainer.append(item);
+        }
+    }
 
     $('#sendSelection').on('click', function () {
 

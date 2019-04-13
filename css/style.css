@@ -14,6 +14,12 @@
     margin-bottom: 10px;
 }
 
+.days-schedule {
+    min-height: 20vh;
+    height: 60vh;
+    overflow: auto;
+}
+
 .appointment {
     width: 46%;
     text-transform: uppercase;
@@ -119,6 +125,6 @@
 
 @media (min-width: 576px) {
     .modal-dialog {
-        min-width: 600px;
+        min-width: 100vh;
     }
 }

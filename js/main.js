@@ -36,7 +36,7 @@ jQuery(function ($) {
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         // $("#buttonsToSwipe").addClass("hideIt")
-        // mobile = true
+        mobile = true
     }
 
     $.ajaxSetup({ dataType: 'json' });
@@ -234,7 +234,11 @@ jQuery(function ($) {
 
                     
 
-                    drawTime(3, 0, 2)
+                    if (mobile) {
+                        drawTime(3, 0, 2)
+                    } else {
+                        drawTime(3, 0, 6)
+                    }
 
                     $('#modalAccordeon').modal({ show: true });
                 });

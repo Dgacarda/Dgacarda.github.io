@@ -8,41 +8,70 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+    #block{
+      display: none;
+    } 
+    </style>
+
     <title>Document</title>
 </head>
  
 <body>
-    <!-- <button id="hui">Кликни сюда, брат</button> -->
     <div class="container">
         <div class="introduction">
             <p>
-                <a href="" data-toggle="modal" data-target="#exampleModal" class="appointment">Записаться онлайн</a>
-                <br>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Записаться
+              </button>
+              <br>
             </p>
         </div>
     </div>
 
-    
+<!--      
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Выбор подразделения</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <select name="" id="options" class="form-control">
-                        <option value="">Выберите автомойку</option>
-                    </select>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-                </div>
-            </div>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Выбор подразделения</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <select name="" id="options" class="form-control">
+              <option value="">Выберите автомойку</option>
+            </select>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+          </div>
         </div>
-    </div>
+      </div>
+    </div> -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Выбор подразделения</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <select name="" id="options" class="form-control">
+                  <option value="">Выберите автомойку</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
     <div class="modal fade" id="modalAccordeon" tabindex="-1" role="dialog" aria-labelledby="modalAccordeonLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -59,10 +88,6 @@
 
                         <div class="accordion">
                             <div class="panel-body" data-role="schedule-record-widget-schedule-table-container">
-                                <!-- <div class="d-flex flex-row" id="buttonsToSwipe">
-                                    <button id="prev-btn" type="button" class="btn btn-info flex-grow-1 disabled mr-3">Назад</button>
-                                    <button id="next-btn" type="button" class="btn btn-info flex-grow-1">Вперед</button>
-                                </div> -->
                                 <div class="schedule-days-table">
                                     <div class="days-header"></div>
                                     <div class="days-schedule"></div>
@@ -71,7 +96,7 @@
                         </div>
                         <h3 id="information">Дополнительная информация</h3>
 
-                        <div class="accordion ">
+                        <div class="accordion " style="height: 400px">
                             <form id="main">
                                 <div class="form-group">
                                     <label for="name">Ваше имя</label>
@@ -129,44 +154,44 @@
         </div>
       </div>
 
-      <div class="modal fade" id="fail-modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+    <div class="modal fade" id="fail-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-            <div class="modal-body">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Записаться не удалось</h5>
-              <div> Свяжитесь с владельцами ресурса </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-            </div>
+          <div class="modal-body">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Записаться не удалось</h5>
+            <div> Свяжитесь с владельцами ресурса </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="modal fade" id="fail-sms-modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+    <div class="modal fade" id="fail-sms-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-            <div class="modal-body">
-              <h5 class="modal-title">СМС можно отправлять не чаще раза в минуту</h5>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-            </div>
+          <div class="modal-body">
+            <h5 class="modal-title">СМС можно отправлять не чаще раза в минуту</h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
           </div>
         </div>
       </div>
+    </div>
 
 
     <script src="js/vendors/jquery-3.3.1.min.js"></script>

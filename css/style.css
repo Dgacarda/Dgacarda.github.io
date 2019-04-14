@@ -15,7 +15,6 @@
 }
 
 .days-schedule {
-    min-height: 20vh;
     height: 60vh;
     overflow: auto;
 }

@@ -1,12 +1,6 @@
 jQuery(function ($) {
     "use strict";
 
-
-
-    // $("#hui").on('click', function() {
-    //     alert('Ты долбоеб ебаный сасеш')
-    // })
-
     let apiBase = 'http://91.201.55.168/api/odata/standard.odata/';
     let last_sended_code;
     let last_send_sms = 0;
@@ -28,11 +22,9 @@ jQuery(function ($) {
         confirm = $('#confirm'),
         choosenData = false,
         mouseDown = false,
-        coordinats = 0,
         mobile = false,
-        showedDays = 0,
-        countToDate = 1,
-        records = [];
+        records = [],
+        stage = 1;
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         // $("#buttonsToSwipe").addClass("hideIt")
@@ -48,49 +40,39 @@ jQuery(function ($) {
     $("#modalAccordeon").swipe( {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-            // if (direction > 5) {
-
                 if (direction === "right") {
-                    bodyContainer.empty()
-                    headerContainer.empty()
-                    drawTime(3, 2, 4)
+                    if (stage < 3) {
+                        bodyContainer.empty().hide()
+                        headerContainer.empty().hide()
+                        if (stage === 1) {
+                            drawTime(3, 2, 4)
+                            stage = 2
+                        } else if (stage === 2) {
+                            drawTime(3, 4, 6)
+                            stage = 3
+                        }
+                        bodyContainer.fadeIn()
+                        headerContainer.fadeIn()
+                    }
                 } else if (direction === "left") {
-                    bodyContainer.empty()
-                    headerContainer.empty()
-                    drawTime(3, 0, 2)
+                    if (stage > 1) {
+                        bodyContainer.empty().hide()
+                        headerContainer.empty().hide()
+                        if (stage === 2) {
+                            drawTime(3, 0, 2)
+                            stage = 1
+                        } else if (stage === 3) {
+                            drawTime(3, 2, 4)
+                            stage = 2
+                        }
+                        bodyContainer.fadeIn()
+                        headerContainer.fadeIn()
+                    }
                 }
-            // }
-            // alert(direction + " дистанция : " + distance)
-        //   $(this).text("You swiped " + direction );  
         },
         //Default is 75px, set to 0 for demo so any distance triggers swipe
          threshold: 75
       });
-    
-    // $("#modalAccordeon").on('mousedown', function (e) {
-    //     mouseDown = true
-    //     coordinats = e.clientX
-    // })
-    // $("#modalAccordeon").on('mouseup', function () {
-    //     mouseDown = false
-    // })
-    // $("#modalAccordeon").on('mousemove', function (e) {
-    //     if (mouseDown) {
-    //         if (e.clientX + 150 < coordinats) {
-    //             console.log("свайп направо")
-    //         } else if (e.clientX + 150 > coordinats) {
-    //             console.log("свайп налево")
-    //         }
-    //         // console.log(e.clientY)
-    //     }
-    // })
-
-    // $("#modalAccordeon").swipe( {
-    //     //Generic swipe handler for all directions
-    //     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-    //       $(this).text("You swiped " + direction );  
-    //     }
-    // });
 
     $('#main').on('submit', function (e) {
         e.preventDefault();

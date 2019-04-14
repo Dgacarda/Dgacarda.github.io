@@ -104,7 +104,7 @@
 #minor{
     display: none;
 }
-/* @media (min-width: 320px) {
+@media (min-width: 320px) {
     .day-block {
         width: 49%;
     }
@@ -120,10 +120,10 @@
     .day-block {
         width: 89px;
     }
-} */
+}
 
-/* @media (min-width: 576px) {
+@media (min-width: 576px) {
     .modal-dialog {
         min-width: 100vh;
     }
-} */
+}

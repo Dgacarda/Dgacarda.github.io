@@ -37,9 +37,15 @@ jQuery(function ($) {
         return o.val() && o.val() != $(o).attr('placeholder');
     }
 
-    $("#modalAccordeon").swipe( {
+    $(".schedule-days-table").swipe( {
         //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+                if (direction === "up") {
+                    this.preventDefault()
+                }
+                if (direction === "down") {
+                    this.preventDefault()
+                }
                 if (direction === "right") {
                     if (stage < 3) {
                         bodyContainer.empty().hide()
@@ -72,7 +78,7 @@ jQuery(function ($) {
         },
         //Default is 75px, set to 0 for demo so any distance triggers swipe
          threshold: 75
-      });
+    });
 
     $('#main').on('submit', function (e) {
         e.preventDefault();
@@ -172,9 +178,11 @@ jQuery(function ($) {
         });
     });
 
+    $("#exampleModalButton").on("click", function() {
+        $("#exampleModal").modal("show")
+    })
     $("#options").on("change", function() {
         $("#exampleModal").modal("hide")
-        $("#modal-accordeon").modal("show")
         
         selected = select.val();
         select.val('')
@@ -223,7 +231,7 @@ jQuery(function ($) {
                         drawTime(3, 0, 6)
                     }
 
-                    // $("#modalAccordeon").modal("show")
+                    $("#modal-accordeon").modal("show")
                 });
             }
         });

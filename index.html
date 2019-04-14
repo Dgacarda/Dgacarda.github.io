@@ -18,7 +18,7 @@
 </head>
  
 <body>
-    <div class="container">
+    <!-- <div class="container">
         <div class="introduction">
             <p>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -27,43 +27,67 @@
               <br>
             </p>
         </div>
-    </div>
-
-<!--      
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Выбор подразделения</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <select name="" id="options" class="form-control">
-              <option value="">Выберите автомойку</option>
-            </select>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          </div>
-        </div>
-      </div>
     </div> -->
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <select name="" id="options" class="form-control">
+      <option value="">Выберите автомойку</option>
+    </select>
+
+    <div class="modal fade" id="modal-accordeon" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Выбор подразделения</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+
             <div class="modal-body">
-                <select name="" id="options" class="form-control">
-                  <option value="">Выберите автомойку</option>
-                </select>
+                <div class="accordions">
+                    <h3> Выберите желаемое время</h3>
+                    <div class="accordion">
+                        <div class="panel-body" data-role="schedule-record-widget-schedule-table-container">
+                            <div class="schedule-days-table">
+                                <div class="days-header"></div>
+                                <div class="days-schedule"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 id="information">Дополнительная информация</h3>
+
+                    <div class="accordion " style="height: 400px">
+                        <form id="main">
+                            <div class="form-group">
+                                <label for="name">Ваше имя</label>
+                                <input type="text" name="FullName" class="form-control" id="name" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tel">Ваш телефон</label>
+                                <input type="tel" name="phone" class="form-control" id="tel" placeholder="Ваше телефон" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Марка</label>
+                                <select name="CodeTypeOfEmployment" id="type" class="form-control">
+                                    <option value="">Выберите тип</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">Комментарий</label>
+                                
+                                <textarea placeholder="Укажите дополнительные услуги или пожелания" name="Comment" class="form-control" id="" cols="30" rows="2"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Записаться</button>
+                        </form>
+                        <form id="minor" class="mt-2">
+                            <div class="form-group">
+                                <label for="confirm">Введите код подтверждения</label>
+                                <input type="text" class="form-control" id="confirm" 
+                                placeholder="введите код подтверждения" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Подтвердить код</button>
+                        </form>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
@@ -72,8 +96,7 @@
         </div>
       </div>
 
-
-    <div class="modal fade" id="modalAccordeon" tabindex="-1" role="dialog" aria-labelledby="modalAccordeonLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="modalAccordeon" tabindex="-1" role="dialog" aria-labelledby="modalAccordeonLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -85,7 +108,6 @@
                 <div class="modal-body">
                     <div class="accordions">
                         <h3> Выберите желаемое время</h3>
-
                         <div class="accordion">
                             <div class="panel-body" data-role="schedule-record-widget-schedule-table-container">
                                 <div class="schedule-days-table">
@@ -132,10 +154,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     
-    <div class="modal fade" id="success-modal" tabindex="-1" role="dialog">
+    <!-- <div class="modal fade" id="success-modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -152,7 +174,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     <div class="modal fade" id="fail-modal" tabindex="-1" role="dialog">
       <div class="modal-dialog modal-dialog-centered" role="document">

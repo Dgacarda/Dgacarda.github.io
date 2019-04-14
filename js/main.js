@@ -174,7 +174,8 @@ jQuery(function ($) {
 
     $("#options").on("change", function() {
         $("#exampleModal").modal("hide")
-
+        $("#modal-accordeon").modal("show")
+        
         selected = select.val();
         select.val('')
         
@@ -222,7 +223,7 @@ jQuery(function ($) {
                         drawTime(3, 0, 6)
                     }
 
-                    $('#modalAccordeon').modal({ show: true });
+                    // $("#modalAccordeon").modal("show")
                 });
             }
         });

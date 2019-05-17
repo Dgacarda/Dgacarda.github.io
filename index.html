@@ -1,245 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-    #block{
-      display: none;
-    } 
-    </style>
-
-    <title>Document</title>
+  <title>Vuetify Parallax Starter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
 </head>
- 
 <body>
-    <div class="container">
-        <div class="introduction">
-            <p>
-              <h3>Запись</h3>
-                <select name="" id="options" class="form-control">
-                  <option value="">Выберите автомойку</option>
-                </select>
-              <!-- <button type="button" class="btn btn-primary" id="exampleModalButton">
-                Записаться
-              </button> -->
-              <br>
-            </p>
-        </div>
-    </div>
+ <div id="app">
+   <v-app light>
+    <!-- <v-toolbar class="white">
+      <v-toolbar-title v-text="title"></v-toolbar-title>
+    </v-toolbar> -->
+    <v-content>
+      <section>
+        <v-parallax src="assets/nastya1.jpg" height="600">
+          <v-layout
+            column
+            align-center
+            justify-center
+            class="white--text"
+          >
+            <img src="assets/maincacke.jpg" alt="Vuetify.js" height="200">
+            <h1 class="white--text mb-2 display-1 text-xs-center">Lil Cackes</h1>
+            <div class="subheading mb-3 text-xs-center">Вкусное должно быть красивым</div>
+            <v-btn
+              class="error lighten-2 mt-5"
+              dark
+              large
+              href="/pre-made-themes"
+            >
+              Посмотрите мои работы
+            </v-btn>
+          </v-layout>
+        </v-parallax>
+      </section>
 
-    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+      <section>
+        <v-layout
+          column
+          wrap
+          class="my-5"
+          align-center
+        >
+          <v-flex xs12 sm4 class="my-3">
+            <div class="text-xs-center">
+              <h2 class="headline">Мои lil кейки</h2>
+              <span class="subheading">
+                Красиво и со вкусом
+              </span>
             </div>
-            <div class="modal-body">
-              <select name="" id="options" class="form-control">
-                <option value="">Выберите автомойку</option>
-              </select>
+          </v-flex>
+          <v-flex xs12>
+            <v-container grid-list-xl>
+              <v-layout row wrap align-center>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text class="text-xs-center">
+                        <img src="assets/cacke1.jpg" alt="Vuetify.js" height="200">
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline text-xs-center">Рецепт 1</div>
+                    </v-card-title>
+                    <v-card-text>
+                      С утра, когда теплые лучи солнца только проникают сквозь утренние облока, сходите на родник за водой. Далее аккуратно замесите тесто, вкладывая в каждое движение свою душу. Запекайте полученное тесто с такой любовь и нежностью.
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text class="text-xs-center">
+                      <img src="assets/cacke2.jpg" alt="Vuetify.js" height="200">
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline">Рецепт 2</div>
+                    </v-card-title>
+                    <v-card-text>
+                      С утра, когда теплые лучи солнца только проникают сквозь утренние облока, сходите на родник за водой. Далее аккуратно замесите тесто, вкладывая в каждое движение свою душу. Запекайте полученное тесто с такой любовь и нежностью.
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+                <v-flex xs12 md4>
+                  <v-card class="elevation-0 transparent">
+                    <v-card-text class="text-xs-center">
+                        <img src="assets/cacke3.jpg" alt="Vuetify.js" height="200">
+                    </v-card-text>
+                    <v-card-title primary-title class="layout justify-center">
+                      <div class="headline text-xs-center">Рецепт 3</div>
+                    </v-card-title>
+                    <v-card-text>
+                      С утра, когда теплые лучи солнца только проникают сквозь утренние облока, сходите на родник за водой. Далее аккуратно замесите тесто, вкладывая в каждое движение свою душу. Запекайте полученное тесто с такой любовь и нежностью.
+                    </v-card-text>
+                  </v-card>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-flex>
+        </v-layout>
+      </section>
+
+      <section>
+        <v-parallax src="assets/nastya2.jpg" height="380">
+          <v-layout column align-center justify-center>
+            <div class="headline black--text mb-3 text-xs-center">За лучшими сайтами в мире обращаться к Санечку</div>
+            <v-btn
+              class="error lighten-2 mt-5"
+              dark
+              large
+              href="/pre-made-themes"
+            >
+              Закажите прямо сейчас
+            </v-btn>
+          </v-layout>
+        </v-parallax>
+      </section>
+
+      <section>
+        <v-container grid-list-xl>
+          <v-layout row wrap justify-center class="my-5">
+            <v-flex xs12 sm4>
+              <v-card class="elevation-0 transparent">
+                <v-card-title primary-title class="layout justify-center">
+                  <div class="headline">Краткая информация</div>
+                </v-card-title>
+                <v-card-text>
+                  Я вкладываю в каждую пироженку частичку себя, пожалуйста, оцените это с должным вниманием 
+                </v-card-text>
+              </v-card>
+            </v-flex>
+            <v-flex xs12 sm4 offset-sm1>
+              <v-card class="elevation-0 transparent">
+                <v-card-title primary-title class="layout justify-center">
+                  <div class="headline">Мои контакты</div>
+                </v-card-title>
+                <v-card-text>
+                  Звонить строго с 08:00 до 13:00, в остальное время я сплю и кушаю
+                </v-card-text>
+                <v-list class="transparent">
+                  <v-list-tile>
+                    <v-list-tile-action>
+                      <v-icon class="blue--text text--lighten-2">phone</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                      <v-list-tile-title>8-800-555-35-35</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                  <v-list-tile>
+                    <v-list-tile-action>
+                      <v-icon class="blue--text text--lighten-2">place</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                      <v-list-tile-title>Екатеринбург, Россия</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                  <v-list-tile>
+                    <v-list-tile-action>
+                      <v-icon class="blue--text text--lighten-2">email</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-content>
+                      <v-list-tile-title>maincacke@google.com</v-list-tile-title>
+                    </v-list-tile-content>
+                  </v-list-tile>
+                </v-list>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </section>
+
+      <v-footer class="error darken-2">
+        <v-layout row wrap align-center>
+          <v-flex xs12>
+            <div class="white--text ml-3">
+              Made by Alehandro
             </div>
-          </div>
-        </div>
-      </div> -->
-
-
-
-    <div class="modal fade" id="modal-accordeon" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-
-            <div class="modal-body">
-                <div class="accordions">
-                    <h3> Выберите желаемое время</h3>
-                    <div class="accordion">
-                        <div class="panel-body" data-role="schedule-record-widget-schedule-table-container">
-                            <div class="schedule-days-table">
-                                <div class="days-header"></div>
-                                <div class="days-schedule"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <h3 id="information">Дополнительная информация</h3>
-
-                    <div class="accordion " style="height: 400px">
-                        <form id="main">
-                            <div class="form-group">
-                                <label for="name">Ваше имя</label>
-                                <input type="text" name="FullName" class="form-control" id="name" placeholder="Ваше имя" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="tel">Ваш телефон</label>
-                                <input type="tel" name="phone" class="form-control" id="tel" placeholder="Ваше телефон" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="type">Марка</label>
-                                <select name="CodeTypeOfEmployment" id="type" class="form-control">
-                                    <option value="">Выберите тип</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="comment">Комментарий</label>
-                                
-                                <textarea placeholder="Укажите дополнительные услуги или пожелания" name="Comment" class="form-control" id="" cols="30" rows="2"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Записаться</button>
-                        </form>
-                        <form id="minor" class="mt-2">
-                            <div class="form-group">
-                                <label for="confirm">Введите код подтверждения</label>
-                                <input type="text" class="form-control" id="confirm" 
-                                placeholder="введите код подтверждения" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Подтвердить код</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-            </div> -->
-          </div>
-        </div>
-      </div>
-
-    <!-- <div class="modal fade" id="modalAccordeon" tabindex="-1" role="dialog" aria-labelledby="modalAccordeonLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Форма записи</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="accordions">
-                        <h3> Выберите желаемое время</h3>
-                        <div class="accordion">
-                            <div class="panel-body" data-role="schedule-record-widget-schedule-table-container">
-                                <div class="schedule-days-table">
-                                    <div class="days-header"></div>
-                                    <div class="days-schedule"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <h3 id="information">Дополнительная информация</h3>
-
-                        <div class="accordion " style="height: 400px">
-                            <form id="main">
-                                <div class="form-group">
-                                    <label for="name">Ваше имя</label>
-                                    <input type="text" name="FullName" class="form-control" id="name" placeholder="Ваше имя" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tel">Ваш телефон</label>
-                                    <input type="tel" name="phone" class="form-control" id="tel" placeholder="Ваше телефон" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="type">Марка</label>
-                                    <select name="CodeTypeOfEmployment" id="type" class="form-control">
-                                        <option value="">Выберите тип</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="comment">Комментарий</label>
-                                    
-                                    <textarea placeholder="Укажите дополнительные услуги или пожелания" name="Comment" class="form-control" id="" cols="30" rows="2"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Записаться</button>
-                            </form>
-                            <form id="minor" class="mt-2">
-                                <div class="form-group">
-                                    <label for="confirm">Введите код подтверждения</label>
-                                    <input type="text" class="form-control" id="confirm" 
-                                    placeholder="введите код подтверждения" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Подтвердить код</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    
-    <div class="modal fade" id="success-modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-
-            <div class="modal-body">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Вы успешно записались!</h5>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    <div class="modal fade" id="fail-modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Записаться не удалось</h5>
-            <div> Свяжитесь с владельцами ресурса </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal fade" id="fail-sms-modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
-          <div class="modal-body">
-            <h5 class="modal-title">СМС можно отправлять не чаще раза в минуту</h5>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <script src="js/vendors/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery.touchSwipe.js"></script>
-    <script src="js/vendors/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/vendors/jquery.inputmask.js"></script>
+          </v-flex>
+        </v-layout>
+      </v-footer>
+    </v-content>
+  </v-app>
+ </div>
+ <script src="https://unpkg.com/vue/dist/vue.js"></script>
+ <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+ <script>
+   new Vue({
+    el: '#app',
+    data () {
+      return {
+        title: 'Your Logo'
+      }
+    }
+  })
+ </script>
 </body>
-
 </html>

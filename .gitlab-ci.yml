@@ -1,0 +1,19 @@
+image: node:latest
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+
+deploy:
+  stage: deploy
+  script:
+    - apt-get update -qq && apt-get install -y -qq lftp
+    - lftp -c "open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER; set ssl:verify-certificate no; mirror -R dist/ /public_html/"
+  only:
+    - master

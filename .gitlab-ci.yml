@@ -1,30 +1,17 @@
-# Определение стадий и задач
-stages:
-  - build
-  - deploy
+# .gitlab-ci.yml файл расположен в корневом каталоге репозитория
 
-# Задача сборки проекта
-build:
-  stage: build
+pages: # задание должно быть именованными страницами
   image: node:latest
-  before_script:
-    - npm install
+  stage: deploy
   script:
+    - npm ci
     - npm run build
+    - mv public public-vue # GitLab Pages хук для каталога public
+    - mv dist public # переименование каталога dist (результат команды npm run build)
+    # опционально, можно активировать поддержку gzip с помощью следующей строки:
+    - find public -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
   artifacts:
     paths:
-      - dist/
-
-# Задача деплоя на GitHub Pages
-deploy:
-  stage: deploy
-  image: alpine/git
-  script:
-    - git config --global user.name "Alexander"
-    - git config --global user.email "alexander@example.com"
-    - git clone --branch=gh-pages --single-branch https://github.com/Dgacarda/Dgacarda.github.io.git public
-    - cp -R dist/* public/
-    - cd public
-    - git add .
-    - git commit -m "Deployed via GitLab CI"
-    - git push origin gh-pages
+      - public # путь к артефакту должен быть /public для GitLab Pages
+  only:
+    - master

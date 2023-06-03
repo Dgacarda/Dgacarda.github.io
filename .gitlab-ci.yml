@@ -1,0 +1,30 @@
+# Определение стадий и задач
+stages:
+  - build
+  - deploy
+
+# Задача сборки проекта
+build:
+  stage: build
+  image: node:latest
+  before_script:
+    - npm install
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+# Задача деплоя на GitHub Pages
+deploy:
+  stage: deploy
+  image: alpine/git
+  script:
+    - git config --global user.name "Alexander"
+    - git config --global user.email "alexander@example.com"
+    - git clone --branch=gh-pages --single-branch https://github.com/Dgacarda/Dgacarda.github.io.git public
+    - cp -R dist/* public/
+    - cd public
+    - git add .
+    - git commit -m "Deployed via GitLab CI"
+    - git push origin gh-pages

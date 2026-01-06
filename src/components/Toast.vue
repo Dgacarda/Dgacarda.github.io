@@ -31,7 +31,7 @@ watch(
     () => props.show,
     (v) => {
         if (!v) return
-        window.setTimeout(() => emit('close'), 16000)
+        window.setTimeout(() => emit('close'), 4000)
     }
 )
 </script>

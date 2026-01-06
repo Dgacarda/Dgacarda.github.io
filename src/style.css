@@ -1,0 +1,259 @@
+:root{
+    --bg: #0B0A12;
+    --card: #1A1626;
+    --text: #F4EAF2;
+    --muted: #C9B7C6;
+    --accent: #FF7AB6;
+    --shadow: rgba(0,0,0,.35);
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+    height: 100%;
+}
+
+/*body{*/
+/*    margin: 0;*/
+/*    min-height: 100vh;*/
+/*    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;*/
+/*    color: var(--text);*/
+/*    overscroll-behavior: none;*/
+
+/*    background:*/
+/*            radial-gradient(900px 600px at 20% 10%, rgba(255, 122, 182, .18), transparent 55%),*/
+/*            radial-gradient(900px 600px at 85% 85%, rgba(255, 180, 214, .12), transparent 55%),*/
+/*            linear-gradient(180deg, rgba(255,255,255,.02), transparent 40%),*/
+/*            var(--bg);*/
+/*}*/
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color: var(--text);
+    overscroll-behavior: none;
+
+    background: var(--bg);
+}
+
+.page{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 28px 16px 80px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    background:
+            radial-gradient(900px 600px at 20% 10%, rgba(255, 122, 182, .18), transparent 55%),
+            radial-gradient(900px 600px at 85% 85%, rgba(255, 180, 214, .12), transparent 55%),
+            linear-gradient(180deg, rgba(255,255,255,.02), transparent 40%);
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.title{
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+.subtitle{
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.card{
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    border: 1px solid rgba(255, 182, 213, .22);
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 12px 32px var(--shadow);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn{
+    border: 0;
+    background: linear-gradient(135deg, #FF7AB6, #FF9FCF);
+    color: #160A14;
+    font-weight: 800;
+    padding: 12px 16px;
+    border-radius: 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform .08s ease, filter .15s ease;
+}
+
+.btn:hover{
+    filter: brightness(1.05);
+}
+
+.btn:active{
+    transform: translateY(1px);
+}
+
+.btn-secondary{
+    background: rgba(255,255,255,.06);
+    color: var(--text);
+    border: 1px solid rgba(255, 182, 213, .22);
+}
+
+/* ---------- Countdown ---------- */
+
+.countdown{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.box{
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255, 182, 213, .25);
+    border-radius: 14px;
+    padding: 12px;
+    text-align: center;
+}
+
+.num{
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.lbl{
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* ---------- Toggle / Todo ---------- */
+.chev {
+    margin-left: .3rem;
+}
+
+.toggle{
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 182, 213, .22);
+    background: rgba(255,255,255,.04);
+    color: var(--text);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.todo{
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo-item{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255, 182, 213, .18);
+}
+
+.todo-item input{
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    flex: 0 0 18px;
+    accent-color: var(--accent);
+}
+
+.todo-item span.checked{
+    text-decoration: line-through;
+    color: rgba(244,234,242,.55);
+}
+
+/* ---------- Toast ---------- */
+
+.toast{
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    padding: 16px;
+    border-radius: 18px;
+    background: rgba(26, 22, 38, .96);
+    border: 1px solid rgba(255, 182, 213, .35);
+    box-shadow: 0 22px 55px rgba(0,0,0,.45);
+    backdrop-filter: blur(10px);
+}
+
+.toast__content{
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.toast__title{
+    color: var(--accent);
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.toast__msg{
+    margin-top: 6px;
+    line-height: 1.35;
+}
+
+/* Кнопка закрытия */
+.toast__close{
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 10px;
+    background: rgba(255, 122, 182, .16);
+    color: rgba(244,234,242,.85);
+
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+
+    transition: background .15s ease, transform .08s ease;
+}
+
+.toast__close:hover{
+    background: rgba(255, 122, 182, .22);
+}
+
+.toast__close:active{
+    transform: translateY(1px);
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 520px){
+    .countdown{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .header{
+        flex-direction: column;
+    }
+}

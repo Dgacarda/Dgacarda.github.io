@@ -146,7 +146,7 @@ const toast = reactive({
 
 function showCompliment() {
     const msg = compliments[Math.floor(Math.random() * compliments.length)]
-    toast.message = msg
+    toast.message = String(msg)
     toast.show = true
 }
 

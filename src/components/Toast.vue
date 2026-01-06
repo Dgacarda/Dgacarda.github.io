@@ -14,8 +14,6 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from 'vue'
-
 const props = defineProps<{
     show: boolean
     title: string
@@ -25,13 +23,4 @@ const props = defineProps<{
 const emit = defineEmits<{
     (e: 'close'): void
 }>()
-
-// авто-закрытие через 4 секунды
-watch(
-    () => props.show,
-    (v) => {
-        if (!v) return
-        window.setTimeout(() => emit('close'), 4000)
-    }
-)
 </script>

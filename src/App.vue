@@ -1,13 +1,13 @@
 <template>
     <div class="page">
-        <header class="header">
+        <header v-if="!isDone" class="header">
             <div>
                 <h1 class="title">До долгожданной встречи 12 января 12:15 осталось:</h1>
             </div>
         </header>
 
         <section class="card">
-            <div class="countdown">
+            <div v-if="!isDone" class="countdown">
                 <div class="box">
                     <div class="num">{{ timeLeft.days }}</div>
                     <div class="lbl">{{ labels.days }}</div>
@@ -26,8 +26,8 @@
                 </div>
             </div>
 
-            <div v-if="isDone" class="done">
-                🎉 Время пришло!
+            <div v-else class="done">
+                Лиза приехалааааааа 🎉 🎉 🎉 🎉 🎉
             </div>
         </section>
 

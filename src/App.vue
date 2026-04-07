@@ -2,7 +2,7 @@
     <div class="page">
         <header v-if="!isDone" class="header">
             <div>
-                <h1 class="title">До долгожданной встречи 12 января 12:15 осталось:</h1>
+                <h1 class="title">До долгожданного отпуска 13 июня осталось:</h1>
             </div>
         </header>
 
@@ -27,7 +27,7 @@
             </div>
 
             <div v-else class="done">
-                Лиза приехалааааааа!!!
+                Мы улетели!!!
             </div>
         </section>
 
@@ -62,7 +62,7 @@
 import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import Toast from './components/Toast.vue'
 
-const targetMs = new Date('2026-01-12T12:15:00+05:00').getTime()
+const targetMs = new Date('2026-06-13T01:40:00+05:00').getTime()
 
 const timeLeft = reactive({
     days: '0',
@@ -137,8 +137,12 @@ const compliments = [
     'Люблю внезапные дебы на 10 голосовых 💗',
     'Я от тебя без ума 💗',
     'Я скучаю 💗',
-    'Ну почему же ты такая классная 💗',
     'Мне так нравится, когда ты поправляешь мою орфографию 💗',
+    'Люблю когда ты начинаешь исполнять 💗',
+    'Ты сладкая диетическая легкая булочка 💗',
+    'Обожаю смотреть с тобой пацанок 💗',
+    'Мне очень нравятся твои ровные зубы 💗',
+    'Я уважаю твое трудолюбие 💗'
 ]
 
 const toast = reactive({
